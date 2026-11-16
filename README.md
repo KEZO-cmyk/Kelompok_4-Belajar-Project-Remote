@@ -7,3 +7,4 @@ Template website profil perusahaan digital dengan tampilan modern dan profesiona
 -	Tampilan yang responsif di semua ukuran layar.
 -	Dibangun dengan pengkodean yang rapi sehingga mudah dipahami.
 - Tampilan yang mudah diubah dan disesuaikan.
+- makan nasi 
