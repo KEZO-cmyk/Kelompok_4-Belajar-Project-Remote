@@ -13,3 +13,5 @@ Template website profil perusahaan digital dengan tampilan modern dan profesiona
 - ini adalah wilayah Kingandre
 - ini wilayah king kelompok 4
 >>>>>>> d1d8f6e2fa5c8fc7b5ea0d06dc60e51aacd89f7a
+
+- linear regression
