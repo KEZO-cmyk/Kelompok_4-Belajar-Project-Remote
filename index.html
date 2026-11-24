@@ -149,8 +149,12 @@
         <div id="about" class="container text-center py-5">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h3 class="fw-bold lh-2 mb-3">ABOUT US</h3>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+                    <h3 class="fw-bold lh-2 mb-3">ALUR KERJA REGRESI LINEAR</h3>
+                    <p class="lead">
+                        Teknik regresi linier sederhana mencoba untuk menyusun grafik garis antara dua variabel data, yaitu X dan Y. 
+                        Sebagai variabel independen, (X) berada di sepanjang sumbu horizontal sebagai predictor dan variabel dependen (Y) berada pada sumbu vertikal
+                        sebagai variabel repons atau variabel yang diprediksi.
+                    </p>
                 </div>
             </div>
 
@@ -159,14 +163,88 @@
                     <img src="assets/img/about.svg" class="d-block mx-lg-auto img-fluid" alt="Digital Creative" loading="lazy">
                 </div>
                 <div class="col-lg-7">
-                    <h4 class="fw-bold lh-2 mb-3">Creative Digital Agency For Your Business Solutions</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <h4 class="fw-bold lh-2 mb-3">Langkah-langkah dalam regresi linier</h4>
+                    <h4 class="fw-bold lh-2 mb-3">1. Menentukan Variabel dan Persamaan Dasar</h4>
                     <ul>
-                        <li>First list item</li>
-                        <li>Second list item with a longer description</li>
-                        <li>Third list item to close it out</li>
+                        <li>Tentukan variabel</li>
+                        <p>Identifikasi variabel dependen (Y) sebagai target angka yang ingin diprrediksi (misalnya harga rumah), 
+                            dan variabel independen atau fitur (x<sub>i</sub>) sebagai faktor penentunya (misalnya luas banguan).</p>
+                        <li>Susun persamaan linear</li>
+                        <p>Model mencari garis atau bidang paling pas dengan persaan: <br> <br>
+                            <b style="text-align: center;">Y = β<sub>0</sub> + β<sub>1</sub>X<sub>1</sub> + β<sub>2</sub>X<sub>2</sub> + ... + β<sub>p</sub>X<sub>p</sub> + ε</b> <br> <br>
+                            Keterangan: <br>
+                            β<sub>0</sub> adalah intercept/bias, β<sub>i</sub> adalah bobot/koefisien fitur, dan ε adalah error yang tidak dapat dimodelkan.                            
+                        </p>
                     </ul>
-                    <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+                </div>
+                <div>
+                    <h4 class="fw-bold lh-2 mb-3">2. Memulai dari Model Awal <i>(Baseline)</i> dan Mengukur Error</h4>
+                    <ul>
+                        <li>Buat garis awal sederhana</li>
+                        <p>Sebagai titik awal, garis prediksi bisa ditarik datar menggunakan nilai rata-rata dari data Y (dengan mengasumsikan bobot β<sub>1</sub> = 0).</p>
+                        <li>Hitung residual (error)</li>
+                        <p>
+                            Ukur selisih jarak antara setiap titik data aktual (Y<sub>i</sub>) dengan garis prediksi (Y&#770;<sub>i</sub>).
+                            Tujuannya adalah memperkecil error ini sekecil mungkin.
+                        </p>
+                    </ul>
+
+                    <h4 class="fw-bold lh-2 mb-3">3. Memilih Metrik Evaluasi <i>(Loss Function)</i></h4>
+                    <ul>
+                        <li>Tentukan cara mengukur performa model.</li> 
+                        <p>Dua metrik utama yang menjadi sorotan untuk mengevaluasi seberapa pas garis regresi terhadap data:</p>
+                        <ul>
+                            <li><b>Mean Squared Error (MSE)</b>: Rata-rata kuadrat dari selisih antara nilai aktual dan prediksi.</li>
+                            <li><b>Root Mean Squared Error (RMSE)</b>: Akar kuadrat dari MSE, memberikan error dalam satuan yang sama dengan data asli.</li>
+                            <li><b><i>Alternatif lain:</i></b> Mean Absolute Error/MAE jika ingin error diukur secara linear tanpa menghukum outlier secara berlebihan</li>
+                        </ul>
+                    </ul>
+
+                    <h4 class="fw-bold lh-2 mb-3">4. Mencari Koefisien Terbaik <i>(Learning the Coefficients)</i></h4>
+                    <p>Untuk menemukan nilai koefisien (β&#770;<sub>0</sub>, β&#770;<sub>1</sub>, ... ) yang meminimalkan error (MSE/RSS), ada dua pendekatan utama yang digunakan:</p>
+                    <ul>
+                        <li><b>Gradient Descent (Solusi Iteratif)</b></li>
+                        <p>
+                            Algoritma optimasi yang memperbarui nilai bobot/koefisien sedikit demi sedikit secara berulang (iteratif) hingga error mencapai titik minimum. 
+                            Metode ini paling sering dipakai di machine learning karena efisien untuk data dengan banyak fitur.
+                        </p>
+                        <li><b>Normal Equation (Solusi Matematis Langsung/Closed Form)</b></li>
+                        <p>
+                            Menghitung koefisien secara langsung menggunakan rumus aljabar matriks: <br> <br>
+                            <b>β&#770; = (X<sup>T</sup>X)-<sup>1</sup>X<sup>T</sup>Y</b> <br> <br>
+                            Metode ini cepat untuk fitur sedikit, tetapi jarang dipakai pada dataset besar karena proses invers matriks membutuhkan komputasi berat.
+                        </p>
+                    </ul>
+
+                    <h4 class="fw-bold lh-2 mb-3">5. Melakukan Prediksi <i>(Inference)</i> dan Interpretasi</h4>
+                    <ul>
+                        <li>Masukkan data baru ke persamaan</li>
+                        <p>
+                            Setelah koefisien terbaik ditemukan, prediksi nilai masa depan (Y&#770;) dilakukan dengan memasukkan angka fitur baru (X<sub>i</sub>) 
+                            ke persamaan: <br>
+                            Y&#770; = β&#770;<sub>0</sub> + β&#770;<sub>1</sub>X<sub>1</sub> + ... + β&#770;<sub>p</sub>X<sub>p</sub>
+                        </p>
+                        <li>Pahami arti koefisien</li>
+                        <p>
+                            Setiap nilai (β&#770;<sub>i</sub>) menunjukkan seberapa besar perubahan rata-rata nilai (Y) jika fitur (X<sub>i</sub>)
+                            bertambah satu satuan (dengan asumsi fitur lain tetap).
+                        </p>
+                    </ul>
+
+                    <h4 class="fw-bold lh-2 mb-3">6. Memeriksa Validitas dan Asumsi Model</h4>
+                    <ul>
+                        <li>Evaluasi keadaan koefisien dan asumsi</li>
+                        <p>
+                            Dalam konteks statistik, praktisi emeriksa standard error, p-value, 
+                            serta asumsi dasar regresi (linearitas, independensi error, homoskedastisitas, dan normalitas error).
+                        </p>
+                        <li>Uji generalisasi</li>
+                        <p>
+                            Dalam konteks machine learning, langkah terpenting adalah menguji model pada test dataset untuk memastikan
+                            model mampu memprediksi data baru dengan akurat (generalisasi yang baik).
+                        </p>
+                    </ul>
+                    <p>Jika asumsi dilanggar dan performa buruk, data perlu ditransformasi atau model perlu diperluas.</p>
                 </div>
             </div>
         </div>
