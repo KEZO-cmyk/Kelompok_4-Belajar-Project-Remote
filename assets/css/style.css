@@ -76,3 +76,71 @@ body {
 .footer .link a:hover {
   color: #0d6efd;
 }
+
+
+/* HERO SECTION LINEAR REGRESSION */
+
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        #f4f8ff,
+        #e3efff
+    );
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-section h1 {
+    color: #102a56;
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+.hero-section h1 span {
+    color: #1677ff;
+}
+
+.hero-section p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 520px;
+    transition: transform 0.4s ease;
+}
+
+.hero-image:hover {
+    transform: translateY(-8px);
+}
+
+.hero-section .btn-primary {
+    background-color: #1677ff;
+    border-color: #1677ff;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #0756c9;
+}
+
+.hero-section .btn-outline-primary {
+    border-width: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 35px;
+    }
+
+    .hero-section {
+        text-align: center;
+    }
+
+    .hero-image {
+        max-width: 380px;
+    }
+}
